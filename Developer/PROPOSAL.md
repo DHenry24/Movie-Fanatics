@@ -4,8 +4,7 @@
 ## Project Summary
 This website provides users with a collection of movie titles, along with their corresponding ratings, images, descriptions, character names, and actor names. By clicking on a particular movie title, users are directed to a dedicated page that displays all the specific details for that movie.
 
-
-​## Developers
+## Developers
 ​
 1. Jasmine Maduafokwa
 ​
