@@ -19,11 +19,7 @@ This website provides users with a collection of movie titles, along with their 
 - As a Marvel Fanatic i want to be shown an overview of the movie selected
 - As a Marvel Fanatic i want to view corresponding ratings, Cover Picture, Actors
 
- 
-​
-## Animated Gifs/Pictures of App
-​
-- Place various screens of your app here after they have been built
+
 ​
 ## Tech Stack
 ​
@@ -35,8 +31,9 @@ This website provides users with a collection of movie titles, along with their 
 ​
 ​
 ## APIs
-​
-Marvel Api + OMDB Api
+Marvel Api 
++
+OMDB Api
 
 
 
