@@ -24,5 +24,3 @@ var omdbAPIUrl = "http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + search
 fetch(omdbAPIUrl)
     .then(response => response.json())
     .then(data => console.log(data));
-
-addEventListener("click")

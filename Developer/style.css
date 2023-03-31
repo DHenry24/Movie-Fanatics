@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #000000;
+    background-image: url("../images/headerimg.png");
+    width: 100%;
+    height: 400px;
+    
+}
+
+.search-container {
+    display: flex;
+}
+
+button {
+    background-color: #ddd;
+    border: none;
+}
