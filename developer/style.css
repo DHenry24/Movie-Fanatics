@@ -40,6 +40,7 @@ h1 {
 
 .coming-soon {
     background-color: #A70808;
+    color: white;
     border-radius: 20px;
     width: 40%;
     text-align: center;
@@ -48,10 +49,7 @@ h1 {
     margin-top: 5px;
 }
 
-.coming-soon h6 {
-    color: white;
-    font-weight: 200;
-}
+
 
 #submit i{
     color: white;
@@ -95,3 +93,23 @@ h1 {
     background-color: #000000;
     outline: none;
 }
+
+  button{
+    opacity:0.5;
+  }
+  button:hover{
+    opacity:1;
+  }
+
+  #image {
+    opacity: .6;
+    width: 125px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+  }
+    #image:hover {
+        opacity: 1;
+    content: url('../images/2.png');
+  }
