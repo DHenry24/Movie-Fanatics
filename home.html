@@ -7,37 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500"
+        rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./developer/style.css">
-    
-    
+
+
     <title>Marvel Fanatic</title>
 </head>
 
 <body>
     <main>
         <header>
-        <div class="header">
-            <div class="header-text">
-                <h1>Spider-Man:<br><span>Across The Spider Verse</span></h1>
-                <div class="coming-soon">
-                    <p>Coming to Theaters</p>
+            <div class="header">
+                <div class="header-text">
+                    <h1>Spider-Man:<br><span>Across The Spider Verse</span></h1>
+                    <button class="coming-soon">Coming to Theaters</button>
+                </div>
+                <a>
+                    <div class="img-btn" href="#">
+                        <img src="./images/m_480.png" alt="image" id="image">
+                    </div>
+                </a>
+
+                <div class="search-container">
+                    <input type="text" placeholder="Search" name="search">
+                    <div id="submit"><i class='bx bx-search-alt-2'></i></div>
                 </div>
             </div>
-            <a>
-                <div class = "img-btn" href="#">
-                   <img src="./images/m_480.png" alt="image" id="image">
-               </div>
-           </a>
-
-            <div class="search-container">
-                <input type="text" placeholder="Search" name="search">
-                <div id="submit"><i class='bx bx-search-alt-2'></i></div>
-            </div>
-        </div>
         </header>
+
+      <swiper-container class="mySwiper" navigation="true">
+        <div class="swiper-wrapper"></div>
+        </swiper-container>
     </main>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
     <script src="./assets/js/JavaScript-MD5-master/js/md5.min.js"></script>
     <script src="index.js"></script>
