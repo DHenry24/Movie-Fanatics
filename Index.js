@@ -25,6 +25,9 @@ fetch(omdbAPIUrl)
     .then(response => response.json())
     .then(data => console.log(data));
 
+<<<<<<< HEAD
+    
+=======
 
 
 const swiperWrapper = document.querySelector('.swiper-wrapper');
@@ -40,3 +43,4 @@ for (let i = 0; i < movies.length; i++) {
     swiperWrapper.appendChild(slide);
 }
 
+>>>>>>> a70f61cdaccfb748deeea3fb58543c3dfe747464
