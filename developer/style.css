@@ -77,7 +77,6 @@ header {
 .header {
     display: flex;
     justify-content: space-between;
-
 }
 
 .search-container {
@@ -127,4 +126,8 @@ header {
 #image:hover {
     opacity: 1;
     content: url('../images/2.png');
+}
+
+swiper-container {
+    color: white;
 }
