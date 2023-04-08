@@ -9,12 +9,10 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
-h1 {
-    font-family: 'Bangers', cursive;
-    -webkit-text-stroke-color: white; 
-    -webkit-text-stroke-width: 1px;
-    font-size: 65px;
-    line-height: 35px;
+
+.box{
+    background-color: red;
+    color: white;
 }
 
 .header-text {
@@ -24,7 +22,7 @@ h1 {
 }
 
 .header {
-    background-color: #000000;
+    background-color: red;
     background-image: url("../images/image_720\ \(1\).png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,24 +35,6 @@ h1 {
     font-size: 32px;
     -webkit-text-stroke-width: .5px;
 }
-
-.coming-soon {
-    background-color: #A70808;
-    color: white;
-    border-radius: 20px;
-    width: 40%;
-    text-align: center;
-    padding: 2px;
-    letter-spacing: -.5px;
-    margin-top: 5px;
-}
-
-.coming-soon p {
-    font-size: 11px;
-    font-weight: 200;
-}
-
-
 
 #submit i{
     color: white;
@@ -73,7 +53,7 @@ h1 {
     right: 20px;   
 }
 .search-container input {
-    background-color: #000000;
+    background-color: #302b2b2f;
     border-radius: 30px;
     border: none;
     padding: 4px 10px 4px 25px;
@@ -95,23 +75,83 @@ h1 {
 }
 
 .search-container input:focus {
-    background-color: #000000;
+    background-color: #302b2b71;
     outline: none;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .Box {
+    background-color: rgb(25, 24, 48);
+    font-family: "Fira Code", Consolas, "Courier New", monospace;
+    line-height: 19px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+    height: 625px;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-#image {
+  h1{
+    line-height: 100%;
+    padding-bottom: 30px;
+    padding-top: 25px;
+    text-align: left;
+    color: white;
+
+  }
+  h2{
+    padding-bottom: 20px;
+    padding-top: 25px;
+    color: white;
+
+  }
+  h3{
+    padding-bottom: 20px;
+    padding-top: 25px;
+    color: white;
+  }
+  
+.Box p {
+    flex: 1;
+    padding-bottom: 20px;
+    padding-top: 25px;
+    color: whitesmoke;
+  }
+
+  #image {
     opacity: .6;
     width: 125px;
     position: absolute;
     top: 0px;
     left: 0px;
 
-}
+  }
     #image:hover {
         opacity: 1;
         content: url('../images/2.png');
-}
-
-swiper-container {
-    color: white;
-}
+  }
+  #movie-image{
+    float: right;
+    margin-right: 20px;
+    height: 350px;
+    max-width: 100%;
+    align-items: right;
+  }
+  @media screen and (max-width: 768px) {
+    .box{
+      flex-direction: column;
+    }
+  }
+  .image-container{
+    flex: 1;
+    text-align: right;
+  }
