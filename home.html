@@ -10,33 +10,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./developer/style.css">
-    
-    
+    <link rel="stylesheet" href="./developer/search.css">
     <title>Marvel Fanatic</title>
 </head>
 
 <body>
-    <main>
-        <header>
+    <header>
         <div class="header">
-            <div class="header-text">
-                <h1>Spider-Man:<br><span>Across The Spider Verse</span></h1>
-                <div class="coming-soon">
-                    <p>Coming to Theaters</p>
+            <a href="#home">
+                <div class = "img-btn">
+                    <img src="./images/m_480.png" alt="image" id="image">
                 </div>
-            </div>
-            <a>
-                <div class = "img-btn" href="#">
-                   <img src="./images/m_480.png" alt="image" id="image">
-               </div>
-           </a>
+            </a>
 
             <div class="search-container">
-                <input type="text" placeholder="Search" name="search">
+                <input type="text" placeholder="Search" name="search" id="main-page-input">
                 <div id="submit"><i class='bx bx-search-alt-2'></i></div>
             </div>
         </div>
-        </header>
+    </header>
+    <main>
+        <section class="home-section">
+            <div class="main-section" id="home">
+                <div class="header-text">
+                    <h1>Spider-Man:<br><span>Across The Spider Verse</span></h1>
+                    <div class="coming-soon">
+                        <p>Coming to Theaters</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="search-engine hidden">
+            <div class="search-grid">
+            </div> 
+        </section>           
     </main>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
     <script src="./assets/js/JavaScript-MD5-master/js/md5.min.js"></script>
