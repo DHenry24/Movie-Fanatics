@@ -99,16 +99,19 @@ h1 {
     outline: none;
 }
 
-
-  #image {
+#image {
     opacity: .6;
     width: 125px;
     position: absolute;
     top: 0px;
     left: 0px;
 
-  }
+}
     #image:hover {
         opacity: 1;
         content: url('../images/2.png');
-  }
+}
+
+swiper-container {
+    color: white;
+}
