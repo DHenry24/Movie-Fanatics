@@ -25,22 +25,4 @@ fetch(omdbAPIUrl)
     .then(response => response.json())
     .then(data => console.log(data));
 
-<<<<<<< HEAD
     
-=======
-
-
-const swiperWrapper = document.querySelector('.swiper-wrapper');
-
-for (let i = 0; i < movies.length; i++) {
-    const movie = movies[i];
-    const slide = document.createElement('div');
-    slide.classList.add('swiper-slide');
-    slide.innerHTML = `
-          <img src="${movie.image}" alt="${movie.title}">
-          <h3>${movie.title}</h3>
-        `;
-    swiperWrapper.appendChild(slide);
-}
-
->>>>>>> a70f61cdaccfb748deeea3fb58543c3dfe747464
