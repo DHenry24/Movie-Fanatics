@@ -28,7 +28,7 @@ document.querySelector(".img-btn").addEventListener("click", function() {
     homeSection.classList.remove("hidden");
 })
 
-// Search Engine Functionality
+// Search Engine click functionality (activates when "Enter" is pressed)
 mainInput.addEventListener("keypress", function(e) {
     
     const value = e.target.value;
@@ -84,6 +84,7 @@ var actors = document.querySelector("#actors");
 var movieImage = document.querySelector("#movie-image");
 var languages = document.querySelector("#languages");
 
+// Fetch function for search engine
 const fetchFilter = async (value) => {
     let fetchOmdbUrl = "http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
 
@@ -152,9 +153,8 @@ const fetchFilter = async (value) => {
 }
  
 
-var search = "Wednesday";
 
-
+// Fetch function for the detail section
 function fetchCard(value) {
     // OMDB API Fetch
     fetch("http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
@@ -174,6 +174,7 @@ function fetchCard(value) {
         movieImage.alt = data.Title;
         languages.innerHTML = data.Language;
 
+        // Logic for genre 
         var genreSplit = data.Genre.split(", ") 
         if (genreSplit.length > 1) {
             for (let i = 0; i < genreSplit.length; i++) {
@@ -204,15 +205,5 @@ function fetchCard(value) {
 
     
 
-const swiperWrapper = document.querySelector('.swiper-wrapper');
+// const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-// for (let i = 0; i < movies.length; i++) {
-//     const movie = movies[i];
-//     const slide = document.createElement('div');
-//     slide.classList.add('swiper-slide');
-//     slide.innerHTML = `
-//           <img src="${movie.image}" alt="${movie.title}">
-//           <h3>${movie.title}</h3>
-//         `;
-//     swiperWrapper.appendChild(slide);
-// }
