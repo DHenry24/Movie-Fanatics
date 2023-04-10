@@ -2,39 +2,42 @@
 // TMDB Api
 //fetch different catergories 
 var tmdbUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
-// fetch(tmdbUrl)
-// //     .then(response => response.json())
-// //     .then(data => console.log(data));
-// // Main page input
-// var mainInput = document.querySelector("#main-page-input");
-// var mainSection = document.querySelector(".main-section");
-// var homeSection = document.querySelector(".home-section");
-// var searchEngine = document.querySelector(".search-engine");
-// var searchGrid = document.querySelector(".search-grid");
-// document.querySelector(".img-btn").addEventListener("click", function() {
-//     searchEngine.classList.add("hidden");
-//     homeSection.classList.remove("hidden");
-// })
-// // Search Engine Functionality
-// mainInput.addEventListener("keypress", function(e) {
-//     const value = e.target.value;
-//     // Give it search a white border when switched to search grid
-//     mainInput.style.border = "1px solid white";
-//     searchGrid.innerHTML = "";
-//     // Search for the value when "Enter" is pressed
-//     if (e.key === "Enter") {
-//         searchEngine.classList.remove("hidden");
-//         homeSection.classList.add("hidden");
-//     }
-//     // Return to home page if there is no value
-//     if (value === "") {
-//         searchEngine.classList.toggle("hidden");
-//         homeSection.classList.toggle("hidden");
-//         mainInput.style.border = "none";
-//     }
-//     // Fetch value
-//     fetchFilter(value.toLowerCase());
-// })
+var tmdbUrlLatest = "https://api.themoviedb.org/3/movie/latest?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
+var tmdbUrlPopular = "https://api.themoviedb.org/3/movie/popular?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
+var tmdbUrlNowPlaying = "https://api.themoviedb.org/3/movie/now_playing?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
+fetch(tmdbUrl)
+    .then(response => response.json())
+    .then(data => console.log(data));
+// Main page input
+var mainInput = document.querySelector("#main-page-input");
+var mainSection = document.querySelector(".main-section");
+var homeSection = document.querySelector(".home-section");
+var searchEngine = document.querySelector(".search-engine");
+var searchGrid = document.querySelector(".search-grid");
+document.querySelector(".img-btn").addEventListener("click", function() {
+    searchEngine.classList.add("hidden");
+    homeSection.classList.remove("hidden");
+})
+// Search Engine Functionality
+mainInput.addEventListener("keypress", function(e) {
+    const value = e.target.value;
+    // Give it search a white border when switched to search grid
+    mainInput.style.border = "1px solid white";
+    searchGrid.innerHTML = "";
+    // Search for the value when "Enter" is pressed
+    if (e.key === "Enter") {
+        searchEngine.classList.remove("hidden");
+        homeSection.classList.add("hidden");
+    }
+    // Return to home page if there is no value
+    if (value === "") {
+        searchEngine.classList.toggle("hidden");
+        homeSection.classList.toggle("hidden");
+        mainInput.style.border = "none";
+    }
+    // Fetch value
+    fetchFilter(value.toLowerCase());
+})
 
 var omdbAPIKey = "d5fca4e1";
 const fetchFilter = async (value) => {
