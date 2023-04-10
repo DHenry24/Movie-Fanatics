@@ -5,9 +5,7 @@ var tmdbUrlUpcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=d637d
 var tmdbUrlLatest = "https://api.themoviedb.org/3/movie/latest?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
 var tmdbUrlPopular = "https://api.themoviedb.org/3/movie/popular?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
 var tmdbUrlNowPlaying = "https://api.themoviedb.org/3/movie/now_playing?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
-fetch(tmdbUrl)
-  .then(response => response.json())
-  .then(data => console.log(data));
+
 // Main page input
 var mainInput = document.querySelector("#main-page-input");
 var mainSection = document.querySelector(".main-section");
@@ -140,89 +138,73 @@ document.querySelector(".img-btn").addEventListener("click", function() {
         }
 
 
-        var mySwiper = new Swiper('.swiper-container', {
-          // Optional parameters
-          direction: 'horizontal',
-          loop: true,
-          autoplay: {
-            delay: 5000,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
 
-        var movieWrapper = document.querySelector(".swiper-wrapper");
+        // var movieWrapper = document.querySelector(".swiper-wrapper");
 
        
-        // Load default movies
-        fetch(tmdbUrlUpcoming)
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
+        // // Load default movies
+        // fetch(tmdbUrlUpcoming)
+        //   .then(response => response.json())
+        //   .then(data => {
+        //     console.log(data);
         
-            for (var i = 0; i < data.results.length; i += 4) {
-              var movieSlide = document.createElement("div");
-              var movieTitle = document.createElement("p");
-              var movieTestParagraph = document.createElement("div");
-              var movieContainer = document.createElement("div");
-              var movieReleaseDate = document.createElement("p");
-              var moviePosterPath = document.createElement("img");
+        //     for (var i = 0; i < data.results.length; i += 4) {
+        //       var movieSlide = document.createElement("div");
+        //       var movieTitle = document.createElement("p");
+        //       var movieTestParagraph = document.createElement("div");
+        //       var movieContainer = document.createElement("div");
+        //       var movieReleaseDate = document.createElement("p");
+        //       var moviePosterPath = document.createElement("img");
         
-              movieTitle.textContent = data.results[i].title;
-              movieTitle.style.color = "red";
-              movieReleaseDate.textContent = data.results[i].release_date;
-              movieReleaseDate.style.color = "blue";
+        //       movieTitle.textContent = data.results[i].title;
+        //       movieTitle.style.color = "red";
+        //       movieReleaseDate.textContent = data.results[i].release_date;
+        //       movieReleaseDate.style.color = "blue";
         
-              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
-              moviePosterPath.height = 150;
+        //       moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
+        //       moviePosterPath.height = 150;
         
-              movieTestParagraph.appendChild(movieTitle);
-              movieTestParagraph.appendChild(movieReleaseDate);
+        //       movieTestParagraph.appendChild(movieTitle);
+        //       movieTestParagraph.appendChild(movieReleaseDate);
         
-              movieContainer.appendChild(moviePosterPath);
-              movieContainer.appendChild(movieTestParagraph);
+        //       movieContainer.appendChild(moviePosterPath);
+        //       movieContainer.appendChild(movieTestParagraph);
         
-              movieSlide.classList.add("swiper-slide");
-              movieSlide.appendChild(movieContainer);
+        //       movieSlide.classList.add("swiper-slide");
+        //       movieSlide.appendChild(movieContainer);
         
-              movieWrapper.appendChild(movieSlide);
-            }
+        //     //   movieWrapper.appendChild(movieSlide);
+        //     }
+        // })
 
-             // Load latest movies
-        fetch(tmdbUrlLatest)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
+    //          // Load latest movies
+    //     fetch(tmdbUrlLatest)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       console.log(data);
           
-          // Handle latest movies data here
-        })
-        .catch(error => console.log(error));
+    //       // Handle latest movies data here
+    //     })
+    //     .catch(error => console.log(error));
       
-      // Load popular movies
-      fetch(tmdbUrlPopular)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          // Handle popular movies data here
-        })
-        .catch(error => console.log(error));
+    //   // Load popular movies
+    //   fetch(tmdbUrlPopular)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       console.log(data);
+    //       // Handle popular movies data here
+    //     })
+    //     .catch(error => console.log(error));
       
-      // Load now playing movies
-      fetch(tmdbUrlNowPlaying)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          // Handle now playing movies data here
-        })
-        .catch(error => console.log(error));
-          })
-          .catch(error => console.log(error));
+    //   // Load now playing movies
+    //   fetch(tmdbUrlNowPlaying)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       console.log(data);
+    //       // Handle now playing movies data here
+    //     })
+    //     .catch(error => console.log(error));
+    //       })
 
       
       // Fetch function for the detail section
@@ -280,5 +262,49 @@ document.querySelector(".img-btn").addEventListener("click", function() {
 
           });
       }
+
+      var nowPlayingWrapper = document.querySelector(".now-playing-wrapper")
+
+      fetch(tmdbUrlNowPlaying)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+        
+            for (var i = 0; i < data.results.length; i += 4) {
+              
+              var movieContainer = document.createElement("div");
+
+              var movieTitle = document.createElement("div");
+              var movieName = document.createElement("p");
+              var movieReleaseDate = document.createElement("p");
+
+              var movieImage = document.createElement("div");
+              var moviePosterPath = document.createElement("img");
+
+              movieImage.setAttribute("class", "image-content popular-image");
+              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
+              moviePosterPath.alt = data.results[i].title;
+              moviePosterPath.style.borderRadius = "10px";
+
+              movieImage.appendChild(moviePosterPath);
+            
+              movieTitle.setAttribute("class", "title")
+              movieName.setAttribute("class", "movie_title")
+              movieName.textContent = data.results[i].title;
+              movieReleaseDate.textContent = data.results[i].release_date.substring(0,4);
+                
+              movieTitle.appendChild(movieName);
+              movieTitle.appendChild(movieReleaseDate);
+                
+              movieContainer.setAttribute("class", "card");
+
+              movieContainer.appendChild(moviePosterPath);
+              movieContainer.appendChild(movieTitle);
+            
+              nowPlayingWrapper.appendChild(movieContainer);
+        
+             
+            }
+        })
 
 
