@@ -1,105 +1,84 @@
-// Marvel API Params (private key, public key, hash, and timestamp)
-// var privateKey = "80a597a0c93c43cf353b5afe4098352f521de240";
-// var publicKey = "4ec84459a84634cbb689fd829aced84c"
-// var ts = new Date().getTime();
 
-
-// var hash = md5(ts + privateKey + publicKey)
-// var marvelUrl = "http://gateway.marvel.com/v1/public/characters?apikey=4ec84459a84634cbb689fd829aced84c&hash=" + hash + "&ts=" + ts;
-// console.log(ts)
-
-// TMDB Api 
+// TMDB Api
+//fetch different catergories 
 var tmdbUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
+var tmdbUrlLatest = "https://api.themoviedb.org/3/movie/latest?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
+var tmdbUrlPopular = "https://api.themoviedb.org/3/movie/popular?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
+var tmdbUrlNowPlaying = "https://api.themoviedb.org/3/movie/now_playing?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
 fetch(tmdbUrl)
-    .then(response => response.json())
-    .then(data => console.log(data));
-
+  .then(response => response.json())
+  .then(data => console.log(data));
 // Main page input
 var mainInput = document.querySelector("#main-page-input");
 var mainSection = document.querySelector(".main-section");
 var homeSection = document.querySelector(".home-section");
 var searchEngine = document.querySelector(".search-engine");
 var searchGrid = document.querySelector(".search-grid");
-var movieDesc = document.querySelector(".movie-desc");
-
-document.querySelector(".img-btn").addEventListener("click", function() {
-    searchEngine.classList.add("hidden");
-    movieDesc.classList.add("hidden");
-    homeSection.classList.remove("hidden");
-})
-
-// Search Engine click functionality (activates when "Enter" is pressed)
-mainInput.addEventListener("keypress", function(e) {
-    
-    const value = e.target.value;
-
-    // Give it search a white border when switched to search grid
-    mainInput.style.border = "1px solid white";
-    searchGrid.innerHTML = "";
-
-    // Search for the value when "Enter" is pressed
-    if (e.key === "Enter") {
-        searchEngine.classList.remove("hidden");
-        homeSection.classList.add("hidden");
-        movieDesc.classList.add("hidden");
-    }
-
-    // Return to home page if there is no value
-    if (value === "") {
-        searchEngine.classList.add("hidden");
-        homeSection.classList.remove("hidden");
-        movieDesc.classList.add("hidden");
-        mainInput.style.border = "none";
-    }
-
-    // Fetch value
-    fetchFilter(value.toLowerCase());    
-
-})
-
-
-
-
-// var privateKey = "80a597a0c93c43cf353b5afe4098352f521de240";
-//     var publicKey = "4ec84459a84634cbb689fd829aced84c"
-//     var ts = new Date().getTime();
-//     var hash = md5(ts + privateKey + publicKey)
-//     var marvelUrl = "http://gateway.marvel.com/v1/public/characters/?apikey=4ec84459a84634cbb689fd829aced84c&hash=" + hash + "&ts=" + ts;
-
-
 
 var omdbAPIKey = "d5fca4e1";
 
-var genre = document.querySelector(".genre");
 
-var descTitle = document.querySelector("#desc-title");
-var rating = document.querySelector("#rating");
-var rated = document.querySelector("#rated");
-var runtime = document.querySelector("#runtime");
-var year = document.querySelector("#year");
-var descParagraph = document.querySelector("#desc-paragraph");
-var director = document.querySelector("#director");
-var writer = document.querySelector("#writer");
-var actors = document.querySelector("#actors");
-var movieImage = document.querySelector("#movie-image");
-var languages = document.querySelector("#languages");
+        // Search Engine click functionality (activates when "Enter" is pressed)
+        mainInput.addEventListener("keypress", function (e) {
 
-// Fetch function for search engine
-const fetchFilter = async (value) => {
-    let fetchOmdbUrl = "http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
+          const value = e.target.value;
 
-    try {
-        const response = await fetch(fetchOmdbUrl);
-        const data = await response.json();
+          // Give it search a white border when switched to search grid
+          mainInput.style.border = "1px solid white";
+          searchGrid.innerHTML = "";
 
-        if (data.Response === "True") {
-            console.log(data);
-            var i = 0;
+          // Search for the value when "Enter" is pressed
+          if (e.key === "Enter") {
+            searchEngine.classList.remove("hidden");
+            homeSection.classList.add("hidden");
+            movieDesc.classList.add("hidden");
+          }
 
-            // While less than the data length, append the search elements to the 
-            // search grid
-            while (i < data.Search.length) {
-                
+          // Return to home page if there is no value
+          if (value === "") {
+            searchEngine.classList.add("hidden");
+            homeSection.classList.remove("hidden");
+            movieDesc.classList.add("hidden");
+            mainInput.style.border = "none";
+          }
+
+          // Fetch value
+          fetchFilter(value.toLowerCase());
+        
+        })
+
+        var omdbAPIKey = "d5fca4e1";
+
+        var genre = document.querySelector(".genre");
+
+        var descTitle = document.querySelector("#desc-title");
+        var rating = document.querySelector("#rating");
+        var rated = document.querySelector("#rated");
+        var runtime = document.querySelector("#runtime");
+        var year = document.querySelector("#year");
+        var descParagraph = document.querySelector("#desc-paragraph");
+        var director = document.querySelector("#director");
+        var writer = document.querySelector("#writer");
+        var actors = document.querySelector("#actors");
+        var movieImage = document.querySelector("#movie-image");
+        var languages = document.querySelector("#languages");
+
+        // Fetch function for search engine
+        const fetchFilter = async (value) => {
+          let fetchOmdbUrl = "http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
+
+          try {
+            const response = await fetch(fetchOmdbUrl);
+            const data = await response.json();
+
+            if (data.Response === "True") {
+              console.log(data);
+              var i = 0;
+
+              // While less than the data length, append the search elements to the 
+              // search grid
+              while (i < data.Search.length) {
+
                 var imageUrl = document.createElement("img");
                 var searchImage = document.createElement("div");
                 var searchPara = document.createElement("p");
@@ -111,107 +90,159 @@ const fetchFilter = async (value) => {
                 searchPara.innerHTML = data.Search[i].Title;
 
                 if (data.Search[i].Poster !== "N/A") {
-                    imageUrl.src = data.Search[i].Poster;
-                    imageUrl.alt = data.Search[i].Title;
-                    searchImage.appendChild(imageUrl);
-                    searchItem.appendChild(searchImage);
-                    searchItem.appendChild(searchPara);
-                    searchGrid.appendChild(searchItem);
-                    searchItem.style.cursor ="pointer";
+                  imageUrl.src = data.Search[i].Poster;
+                  imageUrl.alt = data.Search[i].Title;
+                  searchImage.appendChild(imageUrl);
+                  searchItem.appendChild(searchImage);
+                  searchItem.appendChild(searchPara);
+                  searchGrid.appendChild(searchItem);
                 }
 
-                searchItem.addEventListener("click", function() {
-                    descTitle.innerHTML = '';
-                    genre.innerHTML = '';
-                    rating.innerHTML = '';
-                    rated.innerHTML = '';
-                    runtime.innerHTML = '';
-                    year.innerHTML = '';
-                    descParagraph.innerHTML = '';
-                    director.innerHTML = '';
-                    writer.innerHTML = '';
-                    actors.innerHTML = '';
-                    movieImage.src = '';
-                    movieImage.alt = '';
-                    languages.innerHTML = '';
+                searchItem.style.cursor = "pointer";
+              }
+
+              searchItem.addEventListener("click", function () {
+                descTitle.innerHTML = '';
+                genre.innerHTML = '';
+                rating.innerHTML = '';
+                rated.innerHTML = '';
+                runtime.innerHTML = '';
+                year.innerHTML = '';
+                descParagraph.innerHTML = '';
+                director.innerHTML = '';
+                writer.innerHTML = '';
+                actors.innerHTML = '';
+                movieImage.src = '';
+                movieImage.alt = '';
+                languages.innerHTML = '';
 
 
-                    fetchCard(this.lastChild.innerHTML);
+                fetchCard(this.lastChild.innerHTML);
 
-                    
 
-                })
 
-                i++;
+              })
+
+              i++;
             }
 
+          }
+          catch (error) {
+            searchGrid.innerHTML = `<p>No movies found.</p>`
+          }
+
         }
-    } 
-    catch(error) {
-        searchGrid.innerHTML = `<p>No movies found.</p>`
-    }
-}
- 
 
 
-// Fetch function for the detail section
-function fetchCard(value) {
-    // OMDB API Fetch
-    movieDesc.classList.add("hidden");
+        var mySwiper = new Swiper('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: true,
+          autoplay: {
+            delay: 5000,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
 
-    fetch("http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        descTitle.innerHTML = data.Title;
-        rating.innerHTML = data.imdbRating;
-        rated.innerHTML = data.Rated;
-        runtime.innerHTML = data.Runtime;
-        year.innerHTML = data.Year;
-        descParagraph.innerHTML = data.Plot;
-        director.innerHTML = data.Director;
-        writer.innerHTML = data.Writer;
-        actors.innerHTML = data.Actors;
-        movieImage.src = data.Poster;
-        movieImage.alt = data.Title;
-        languages.innerHTML = data.Language;
+        var movieWrapper = document.querySelector(".swiper-wrapper");
 
-        // Logic for genre 
-        var genreSplit = data.Genre.split(", ") 
-        if (genreSplit.length > 1) {
-            for (let i = 0; i < genreSplit.length; i++) {
+        fetch(tmdbUrl)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+
+            for (var i = 0; i < data.results.length; i += 4) {
+              var movieSlide = document.createElement("div");
+              var movieTitle = document.createElement("p");
+              var movieTestParagraph = document.createElement("div");
+              var movieContainer = document.createElement("div");
+              var movieReleaseDate = document.createElement("p");
+              var moviePosterPath = document.createElement("img");
+
+              movieTitle.textContent = data.results[i].title;
+              movieTitle.style.color = "red";
+              movieReleaseDate.textContent = data.results[i].release_date;
+              movieReleaseDate.style.color = "blue";
+
+              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
+              moviePosterPath.height = 150;
+
+              movieTestParagraph.appendChild(movieTitle);
+              movieTestParagraph.appendChild(movieReleaseDate);
+
+              movieContainer.appendChild(moviePosterPath);
+              movieContainer.appendChild(movieTestParagraph);
+
+              movieSlide.classList.add("swiper-slide");
+              movieSlide.appendChild(movieContainer);
+
+              movieWrapper.appendChild(movieSlide);
+            }
+          })
+          .catch(error => console.log(error));
+
+      
+      // Fetch function for the detail section
+      function fetchCard(value) {
+        // OMDB API Fetch
+        movieDesc.classList.add("hidden");
+
+        fetch("http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            descTitle.innerHTML = data.Title;
+            rating.innerHTML = data.imdbRating;
+            rated.innerHTML = data.Rated;
+            runtime.innerHTML = data.Runtime;
+            year.innerHTML = data.Year;
+            descParagraph.innerHTML = data.Plot;
+            director.innerHTML = data.Director;
+            writer.innerHTML = data.Writer;
+            actors.innerHTML = data.Actors;
+            movieImage.src = data.Poster;
+            movieImage.alt = data.Title;
+            languages.innerHTML = data.Language;
+
+            // Logic for genre 
+            var genreSplit = data.Genre.split(", ")
+            if (genreSplit.length > 1) {
+              for (let i = 0; i < genreSplit.length; i++) {
                 var genrePara = document.createElement("p");
                 var genreContainer = document.createElement("div");
-    
+
                 genrePara.innerHTML = genreSplit[i];
                 genreContainer.setAttribute("class", "genre-container");
                 genreContainer.appendChild(genrePara);
                 genre.appendChild(genreContainer);
                 genre.style.justifyContent = "space-evenly";
-    
+
+              }
+            } else if (genreSplit.length === 1) {
+              var genrePara = document.createElement("p");
+              var genreContainer = document.createElement("div");
+
+              genrePara.innerHTML = genreSplit[0];
+              genreContainer.setAttribute("class", "genre-container");
+              genreContainer.appendChild(genrePara);
+              genre.appendChild(genreContainer);
+              genre.style.justifyContent = "left";
             }
-        } else if (genreSplit.length === 1) {
-            var genrePara = document.createElement("p");
-            var genreContainer = document.createElement("div");
 
-            genrePara.innerHTML = genreSplit[0];
-            genreContainer.setAttribute("class", "genre-container");
-            genreContainer.appendChild(genrePara);
-            genre.appendChild(genreContainer);
-            genre.style.justifyContent = "left";
-        }
-
-        // Detail card shows up after API call is loaded and complete
-        searchEngine.classList.add("hidden");
-        homeSection.classList.add("hidden");
-        movieDesc.classList.remove("hidden");
-        
-        
-    });
-}
+            // Detail card shows up after API call is loaded and complete
+            searchEngine.classList.add("hidden");
+            homeSection.classList.add("hidden");
+            movieDesc.classList.remove("hidden");
 
 
-    
+          });
+      }
 
-// const swiperWrapper = document.querySelector('.swiper-wrapper');
 

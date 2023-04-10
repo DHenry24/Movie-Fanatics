@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="icon" href="./images/MF_Favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;500;700"
         rel="stylesheet">
@@ -23,7 +25,7 @@
     <header>
         <div class="header">
             <a href="#home">
-                <div class = "img-btn">
+                <div class="img-btn">
                     <img src="./images/7.png" alt="image" id="image">
                 </div>
             </a>
@@ -44,36 +46,36 @@
                         <p>Coming to Theaters</p>
                     </div>
                 </div>
-                <div class="sliders-section">
-                    <swiper-container class="mySwiper" navigation="true">
-                        <swiper-slide id="slide1">Slide 1</swiper-slide>
-                        <swiper-slide id="slide2">Slide 2</swiper-slide>
-                        <swiper-slide id="slide3">Slide 3</swiper-slide>
-                        <swiper-slide id="slide4">Slide 4</swiper-slide>
-                        <swiper-slide id="slide5">Slide 5</swiper-slide>
-                        <swiper-slide id="slide6">Slide 6</swiper-slide>
-                        <swiper-slide id="slide7">Slide 7</swiper-slide>
-                        <swiper-slide id="slide8">Slide 8</swiper-slide>
-                        <swiper-slide id="slide9">Slide 9</swiper-slide>
-                      </swiper-container>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper"></div>
+                </div>
+                <div class="test">
+                    <img>
+                    <div class="p">
+                        <p></p>
+                        <p></p>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
+
         </section>
         <!-- SEARCH ENGINE SECTION (CSS AND RESPONSIVENESS FINISHED; SEARCH.CSS) -->
         <section class="search-engine hidden">
             <div class="search-grid">
-            </div> 
-        </section>  
-          <!-- DETAIL PAGE SECTION (CSS AND RESPONSIVENESS FINISHED; DESC.CSS) -->
+            </div>
+        </section>
+        <!-- DETAIL PAGE SECTION (CSS AND RESPONSIVENESS FINISHED; DESC.CSS) -->
         <section class="movie-desc hidden">
-            <div class="box"> 
+            <div class="box">
                 <div class="info">
                     <h2 id="desc-title">Spider-Man: Homecoming</h2>
                     <div class="genre">
                     </div>
                     <div class="miscellaneous">
                         <div class="rating">
-                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star'></i>
                             <span id="rating">8.2</span>
                         </div>
                         <div class="rated">
@@ -88,7 +90,9 @@
                     </div>
                     <div class="text-desc">
                         <p id="desc-paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe repellendus eum ipsa reprehenderit nostrum dolor voluptatum fugit magni molestiae error, ducimus dignissimos assumenda doloremque asperiores obcaecati laboriosam voluptates repellat facere.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe repellendus eum ipsa
+                            reprehenderit nostrum dolor voluptatum fugit magni molestiae error, ducimus dignissimos
+                            assumenda doloremque asperiores obcaecati laboriosam voluptates repellat facere.
                         </p>
                     </div>
                     <div class="director-writer">
@@ -96,24 +100,24 @@
                         <p class="writer">Writer: <span id="writer">Rob Paddington</span></p>
                     </div>
                     <div class="actors">
-                        <h5>Actors</h5>                       
-                        <p id="actors">Ed Wick, Joseph Goodman, Penelope Douglas</p>                       
+                        <h5>Actors</h5>
+                        <p id="actors">Ed Wick, Joseph Goodman, Penelope Douglas</p>
                     </div>
                     <div class="languages">
-                        <h5>Languages</h5>                       
-                        <p id="languages">Ed Wick, Joseph Goodman, Penelope Douglas</p>                       
+                        <h5>Languages</h5>
+                        <p id="languages">Ed Wick, Joseph Goodman, Penelope Douglas</p>
                     </div>
-                </div>                   
+                </div>
                 <div class="image-container">
                     <img src="./images/187504_large.jpg" alt="Spider-Man: Homecoming" id="movie-image">
                 </div>
             </div>
-        </section>       
+        </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
-    <script src="./assets/js/JavaScript-MD5-master/js/md5.min.js"></script>
-    <script src="index.js"></script>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
