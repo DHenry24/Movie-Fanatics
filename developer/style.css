@@ -140,10 +140,10 @@ header {
 .swiper-button-next{
     postion: flex;
     padding:15px;
-    margin-top: 20em;
+    margin-top: 15em;
 }
 .swiper-button-prev{
     position: flex;
     padding: 15px;
-    margin-top: 20em;
+    margin-top: 15em;
 }

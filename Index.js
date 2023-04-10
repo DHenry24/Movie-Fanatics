@@ -210,8 +210,8 @@ document.querySelector(".img-btn").addEventListener("click", function() {
                 clickable: true,
               },
               navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next2',
+                prevEl: '.swiper-button-prev2',
               },
             });
 
