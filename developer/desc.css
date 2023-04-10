@@ -16,6 +16,19 @@
   padding: 40px;
   display: flex;
   justify-content: space-between;
+  opacity: 0;
+  animation: rise .7s ease forwards;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 #desc-title {
@@ -109,6 +122,7 @@
 
 .languages {
   margin-top: 15px;
+  width: 400px;
 }
 
 .actors h5, .languages h5 {
@@ -169,6 +183,9 @@
       width: 100%;
     }
     .director-writer {
+      width: 350px;
+    }
+    .languages {
       width: 350px;
     }
   }

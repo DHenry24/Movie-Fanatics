@@ -135,10 +135,10 @@ const fetchFilter = async (value) => {
                     movieImage.alt = '';
                     languages.innerHTML = '';
 
+
                     fetchCard(this.lastChild.innerHTML);
-                    searchEngine.classList.add("hidden");
-                    homeSection.classList.add("hidden");
-                    movieDesc.classList.remove("hidden");
+
+                    
 
                 })
 
@@ -157,6 +157,8 @@ const fetchFilter = async (value) => {
 // Fetch function for the detail section
 function fetchCard(value) {
     // OMDB API Fetch
+    movieDesc.classList.add("hidden");
+
     fetch("http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
     .then(response => response.json())
     .then(data => {
@@ -198,6 +200,12 @@ function fetchCard(value) {
             genre.appendChild(genreContainer);
             genre.style.justifyContent = "left";
         }
+
+        // Detail card shows up after API call is loaded and complete
+        searchEngine.classList.add("hidden");
+        homeSection.classList.add("hidden");
+        movieDesc.classList.remove("hidden");
+        
         
     });
 }
