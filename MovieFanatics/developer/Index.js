@@ -150,7 +150,7 @@ document.querySelector(".img-btn").addEventListener("click", function() {
         // OMDB API Fetch
         movieDesc.classList.add("hidden");
 
-        fetch("http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
+        fetch("https://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
           .then(response => response.json())
           .then(data => {
             console.log(data);
