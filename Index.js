@@ -137,140 +137,14 @@ document.querySelector(".img-btn").addEventListener("click", function() {
         }
 
 
-        var mySwiper = new Swiper('.swiper-container', {
-          // Optional parameters
-          slidesPerView: 4,
-          spaceBetween: 10,
-          direction: 'horizontal',
-          loop: true,
-          autoplay: {
-            delay: 5000,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
+        
+
       
-
-
-        // var movieWrapper = document.querySelector(".swiper-wrapper");
 
        
         // Load default movies
 
-        fetch(tmdbUrlUpcoming)
-
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
         
-            for (var i = 0; i < data.results.length; i += 4) {
-              var movieSlide = document.createElement("div");
-              var movieTitle = document.createElement("p");
-              var movieTestParagraph = document.createElement("div");
-              var movieContainer = document.createElement("div");
-              var movieReleaseDate = document.createElement("p");
-              var moviePosterPath = document.createElement("img");
-        
-              movieTitle.textContent = data.results[i].title;
-              movieTitle.style.color = "red";
-              movieReleaseDate.textContent = data.results[i].release_date;
-              movieReleaseDate.style.color = "blue";
-        
-              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
-              moviePosterPath.height = 150;
-        
-              movieTestParagraph.appendChild(movieTitle);
-              movieTestParagraph.appendChild(movieReleaseDate);
-        
-              movieContainer.appendChild(moviePosterPath);
-              movieContainer.appendChild(movieTestParagraph);
-        
-              movieSlide.classList.add("swiper-slide");
-              movieSlide.appendChild(movieContainer);
-        
-              movieWrapper.appendChild(movieSlide);
-            }
-            var mySwiper2 = new Swiper('.swiper-container2', {
-              // Optional parameters
-              slidesPerView: 4,
-              spaceBetween: 10,
-              direction: 'horizontal',
-              loop: true,
-              autoplay: {
-                delay: 5000,
-              },
-              pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-              },
-              navigation: {
-                nextEl: '.swiper-button-next2',
-                prevEl: '.swiper-button-prev2',
-              },
-            });
-
-             // Load latest movies
-        fetch(tmdbUrlLatest)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-        
-            for (var i = 0; i < data.results.length; i += 4) {
-              var movieSlide = document.createElement("div");
-              var movieTitle = document.createElement("p");
-              var movieTestParagraph = document.createElement("div");
-              var movieContainer = document.createElement("div");
-              var movieReleaseDate = document.createElement("p");
-              var moviePosterPath = document.createElement("img");
-        
-              movieTitle.textContent = data.results[i].title;
-              movieTitle.style.color = "red";
-              movieReleaseDate.textContent = data.results[i].release_date;
-              movieReleaseDate.style.color = "blue";
-        
-              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
-              moviePosterPath.height = 150;
-        
-              movieTestParagraph.appendChild(movieTitle);
-              movieTestParagraph.appendChild(movieReleaseDate);
-        
-              movieContainer.appendChild(moviePosterPath);
-              movieContainer.appendChild(movieTestParagraph);
-        
-              movieSlide.classList.add("swiper-slide");
-              movieSlide.appendChild(movieContainer);
-        
-              movieWrapper.appendChild(movieSlide);
-            }         
-        })
-        .catch(error => console.log(error));
-      
-    //   // Load popular movies
-    //   fetch(tmdbUrlPopular)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       console.log(data);
-    //       // Handle popular movies data here
-    //     })
-    //     .catch(error => console.log(error));
-      
-    //   // Load now playing movies
-    //   fetch(tmdbUrlNowPlaying)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       console.log(data);
-    //       // Handle now playing movies data here
-    //     })
-    //     .catch(error => console.log(error));
-    //       })
-
-      
       // Fetch function for the detail section
       function fetchCard(value) {
         // OMDB API Fetch
@@ -507,5 +381,5 @@ document.querySelector(".img-btn").addEventListener("click", function() {
                  })
                 }
             })
-          })
+
 
