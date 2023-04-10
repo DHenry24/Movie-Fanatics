@@ -51,7 +51,7 @@ font-size: 6em;
     -webkit-text-stroke-width: .5px;
 }
 
-.coming-soon {
+.coming-soon button {
     background-color: #A70808;
     color: white;
     border-radius: 20px;
@@ -62,7 +62,7 @@ font-size: 6em;
     margin-top: 5px;
 }
 
-.coming-soon p {
+.coming-soon button {
     font-size: 11px;
     font-weight: 200;
 }
