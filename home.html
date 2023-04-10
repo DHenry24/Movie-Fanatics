@@ -5,53 +5,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Trying to add logo image to tab but sizing is too small -->
+    <link rel="icon" href="./images/MF_Favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500"
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;500;700"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./developer/style.css">
-
-
+    <link rel="stylesheet" href="./developer/search.css">
+    <link rel="stylesheet" href="./developer/desc.css">
     <title>Marvel Fanatic</title>
 </head>
 
 <body>
+    <!-- MAIN HEADER SECTION WITH LOGO AND SEARCH INPUT (STYLE.CSS)-->
+    <header>
+        <div class="header">
+            <a href="#home">
+                <div class="img-btn">
+                    <img src="./images/7.png" alt="image" id="image">
+                </div>
+            </a>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search" name="search" id="main-page-input">
+                <div id="submit"><i class='bx bx-search-alt-2'></i></div>
+            </div>
+        </div>
+    </header>
     <main>
-        <header>
-            <div class="header">
+        <!-- HOME PAGE SECTION (CSS AND RESPONSIVENESS PENDING; STYLE.CSS) -->
+        <section class="home-section">
+            <div class="main-section" id="home">
                 <div class="header-text">
                     <h1>Spider-Man:<br><span>Across The Spider Verse</span></h1>
-                    <button class="coming-soon">Coming to Theaters</button>
-                </div>
-                <a>
-                    <div class="img-btn" href="#">
-                        <img src="./images/m_480.png" alt="image" id="image">
+                    <div class="coming-soon">
+                        <p>Coming to Theaters</p>
                     </div>
-                </a>
-
-                <div class="search-container">
-                    <input type="text" placeholder="Search" name="search">
-                    <div id="submit"><i class='bx bx-search-alt-2'></i></div>
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper"></div>
+                </div>
+                <div class="test">
+                    <img>
+                    <div class="p">
+                        <p></p>
+                        <p></p>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
             </div>
-        </header>
 
-        <div class="swiper-container">
-            <div class="swiper-wrapper"></div>
-        </div>
-        <div class="test">
-            <img>
-            <div class="p">
-                <p></p>
-                <p></p>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+        </section>
+        <!-- SEARCH ENGINE SECTION (CSS AND RESPONSIVENESS FINISHED; SEARCH.CSS) -->
+        <section class="search-engine hidden">
+            <div class="search-grid">
             </div>
-        </div>
+        </section>
+        <!-- DETAIL PAGE SECTION (CSS AND RESPONSIVENESS FINISHED; DESC.CSS) -->
+        <section class="movie-desc hidden">
+            <div class="box">
+                <div class="info">
+                    <h2 id="desc-title">Spider-Man: Homecoming</h2>
+                    <div class="genre">
+                    </div>
+                    <div class="miscellaneous">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <span id="rating">8.2</span>
+                        </div>
+                        <div class="rated">
+                            <p id="rated">PG-13</p>
+                        </div>
+                        <div class="runtime">
+                            <p id="runtime">90 min</p>
+                        </div>
+                        <div class="year">
+                            <p id="year">2016</p>
+                        </div>
+                    </div>
+                    <div class="text-desc">
+                        <p id="desc-paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe repellendus eum ipsa
+                            reprehenderit nostrum dolor voluptatum fugit magni molestiae error, ducimus dignissimos
+                            assumenda doloremque asperiores obcaecati laboriosam voluptates repellat facere.
+                        </p>
+                    </div>
+                    <div class="director-writer">
+                        <p class="director">Director: <span id="director">Klein Dissick</span></p>
+                        <p class="writer">Writer: <span id="writer">Rob Paddington</span></p>
+                    </div>
+                    <div class="actors">
+                        <h5>Actors</h5>
+                        <p id="actors">Ed Wick, Joseph Goodman, Penelope Douglas</p>
+                    </div>
+                    <div class="languages">
+                        <h5>Languages</h5>
+                        <p id="languages">Ed Wick, Joseph Goodman, Penelope Douglas</p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="./images/187504_large.jpg" alt="Spider-Man: Homecoming" id="movie-image">
+                </div>
+            </div>
+        </section>
     </main>
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
     <script src="index.js"></script>
