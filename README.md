@@ -27,7 +27,7 @@ THEN I am presented with a footer of credits and copy rights text
 ![ScreenshotofMockup](./)
 
 ## URL to Deployed Site 
->https://dhenry24.github.io/team-project/
+>https://dhenry24.github.io/team-project/MovieFanatics
 ## API's Used 
 ```
 OMDB Api Link:
