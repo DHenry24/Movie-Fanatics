@@ -68,7 +68,7 @@ document.querySelector(".img-btn").addEventListener("click", function() {
 
         // Fetch function for search engine
         const fetchFilter = async (value) => {
-          let fetchOmdbUrl = "http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
+          let fetchOmdbUrl = "https://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
 
           try {
             const response = await fetch(fetchOmdbUrl);
