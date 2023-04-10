@@ -14,9 +14,15 @@ var mainSection = document.querySelector(".main-section");
 var homeSection = document.querySelector(".home-section");
 var searchEngine = document.querySelector(".search-engine");
 var searchGrid = document.querySelector(".search-grid");
+var movieDesc = document.querySelector(".movie-desc");
 
 var omdbAPIKey = "d5fca4e1";
 
+document.querySelector(".img-btn").addEventListener("click", function() {
+    searchEngine.classList.add("hidden");
+    movieDesc.classList.add("hidden");
+    homeSection.classList.remove("hidden");
+})
 
         // Search Engine click functionality (activates when "Enter" is pressed)
         mainInput.addEventListener("keypress", function (e) {
@@ -99,31 +105,31 @@ var omdbAPIKey = "d5fca4e1";
                 }
 
                 searchItem.style.cursor = "pointer";
+
+                searchItem.addEventListener("click", function () {
+                    descTitle.innerHTML = '';
+                    genre.innerHTML = '';
+                    rating.innerHTML = '';
+                    rated.innerHTML = '';
+                    runtime.innerHTML = '';
+                    year.innerHTML = '';
+                    descParagraph.innerHTML = '';
+                    director.innerHTML = '';
+                    writer.innerHTML = '';
+                    actors.innerHTML = '';
+                    movieImage.src = '';
+                    movieImage.alt = '';
+                    languages.innerHTML = '';
+
+
+                    fetchCard(this.lastChild.innerHTML);
+                })
+                  
+                i++;
+                  
               }
 
-              searchItem.addEventListener("click", function () {
-                descTitle.innerHTML = '';
-                genre.innerHTML = '';
-                rating.innerHTML = '';
-                rated.innerHTML = '';
-                runtime.innerHTML = '';
-                year.innerHTML = '';
-                descParagraph.innerHTML = '';
-                director.innerHTML = '';
-                writer.innerHTML = '';
-                actors.innerHTML = '';
-                movieImage.src = '';
-                movieImage.alt = '';
-                languages.innerHTML = '';
-
-
-                fetchCard(this.lastChild.innerHTML);
-
-
-
-              })
-
-              i++;
+             
             }
 
           }
