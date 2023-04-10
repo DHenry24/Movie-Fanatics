@@ -48,7 +48,7 @@ header {
     -webkit-text-stroke-width: .5px;
 }
 
-.coming-soon {
+.coming-soon button {
     background-color: #A70808;
     color: white;
     border-radius: 20px;
@@ -59,7 +59,7 @@ header {
     margin-top: 5px;
 }
 
-.coming-soon p {
+.coming-soon button {
     font-size: 11px;
     font-weight: 200;
 }
@@ -128,6 +128,22 @@ header {
     content: url('../images/6.png');
 }
 
-swiper-container {
+.swiper-container {
+    padding-left: 50px;
+    margin-top: 20em;
     color: white;
+}
+.swiper-wrapper{
+    width: 100%;
+    
+}
+.swiper-button-next{
+    postion: flex;
+    padding:15px;
+    margin-top: 20em;
+}
+.swiper-button-prev{
+    position: flex;
+    padding: 15px;
+    margin-top: 20em;
 }
