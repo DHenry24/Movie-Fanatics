@@ -188,35 +188,35 @@ var omdbAPIKey = "d5fca4e1";
               movieWrapper.appendChild(movieSlide);
             }
 
-             // Load latest movies
-        fetch(tmdbUrlLatest)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
+      //        // Load latest movies
+      //   fetch(tmdbUrlLatest)
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     console.log(data);
           
-          // Handle latest movies data here
-        })
-        .catch(error => console.log(error));
+      //     // Handle latest movies data here
+      //   })
+      //   .catch(error => console.log(error));
       
-      // Load popular movies
-      fetch(tmdbUrlPopular)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          // Handle popular movies data here
-        })
-        .catch(error => console.log(error));
+      // // Load popular movies
+      // fetch(tmdbUrlPopular)
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     console.log(data);
+      //     // Handle popular movies data here
+      //   })
+      //   .catch(error => console.log(error));
       
-      // Load now playing movies
-      fetch(tmdbUrlNowPlaying)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          // Handle now playing movies data here
-        })
-        .catch(error => console.log(error));
-          })
-          .catch(error => console.log(error));
+      // // Load now playing movies
+      // fetch(tmdbUrlNowPlaying)
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     console.log(data);
+      //     // Handle now playing movies data here
+      //   })
+      //   .catch(error => console.log(error));
+      //     })
+      //     .catch(error => console.log(error));
 
       
       // Fetch function for the detail section
