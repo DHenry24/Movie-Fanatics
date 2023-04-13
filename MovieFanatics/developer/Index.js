@@ -5,7 +5,6 @@ var tmdbUrlUpcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=d637d
 var tmdbUrlLatest = "https://api.themoviedb.org/3/movie/latest?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
 var tmdbUrlPopular = "https://api.themoviedb.org/3/movie/popular?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
 var tmdbUrlNowPlaying = "https://api.themoviedb.org/3/movie/now_playing?api_key=d637d1e3ce44e7d8ae16b67809fe07c8";
-
 // Main page input
 var mainInput = document.querySelector("#main-page-input");
 var mainSection = document.querySelector(".main-section");
@@ -69,7 +68,7 @@ document.querySelector(".img-btn").addEventListener("click", function() {
 
         // Fetch function for search engine
         const fetchFilter = async (value) => {
-          let fetchOmdbUrl = "http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
+          let fetchOmdbUrl = "https://www.omdbapi.com/?apikey=" + omdbAPIKey + "&s=" + value + "&r=json&page=1";
 
           try {
             const response = await fetch(fetchOmdbUrl);
@@ -137,12 +136,22 @@ document.querySelector(".img-btn").addEventListener("click", function() {
 
         }
       
+
+
+        
+
+      
+
+       
+        // Load default movies
+
+        
       // Fetch function for the detail section
       function fetchCard(value) {
         // OMDB API Fetch
         movieDesc.classList.add("hidden");
 
-        fetch("http://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
+        fetch("https://www.omdbapi.com/?apikey=" + omdbAPIKey + "&t=" + value + "&r=json&page=1&type=movie")
           .then(response => response.json())
           .then(data => {
             console.log(data);
@@ -200,7 +209,7 @@ document.querySelector(".img-btn").addEventListener("click", function() {
           .then(data => {
             console.log(data);
         
-            for (var i = 0; i < data.results.length; i++) {
+            for (var i = 0; i < data.results.length; i ++) {
               
               var movieContainer = document.createElement("div");
 
@@ -230,8 +239,7 @@ document.querySelector(".img-btn").addEventListener("click", function() {
 
               movieContainer.appendChild(moviePosterPath);
               movieContainer.appendChild(movieTitle);
-            
-              movieContainer.style.cursor ="pointer"
+              movieContainer.style.cursor = 'pointer'
               nowPlayingWrapper.appendChild(movieContainer);
             
               movieContainer.addEventListener("click", function() {
@@ -260,42 +268,8 @@ document.querySelector(".img-btn").addEventListener("click", function() {
           .then(data => {
             console.log(data);
         
-            for (var i = 0; i < data.results.length; i++) {
-              
-              var movieContainer = document.createElement("div");
-
-              var movieTitle = document.createElement("div");
-              var movieName = document.createElement("p");
-              var movieReleaseDate = document.createElement("p");
-
-              var movieImage = document.createElement("div");
-              var moviePosterPath = document.createElement("img");
-
-              movieImage.setAttribute("class", "image-content popular-image");
-              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
-              moviePosterPath.alt = data.results[i].title;
-              moviePosterPath.style.borderRadius = "10px";
-
-              movieImage.appendChild(moviePosterPath);
-            
-              movieTitle.setAttribute("class", "title")
-              movieName.setAttribute("class", "movie_title")
-              movieName.textContent = data.results[i].title;
-              movieReleaseDate.textContent = data.results[i].release_date.substring(0,4);
-                
-              movieTitle.appendChild(movieName);
-              movieTitle.appendChild(movieReleaseDate);
-                
-              movieContainer.setAttribute("class", "card");
-
-              movieContainer.appendChild(moviePosterPath);
-              movieContainer.appendChild(movieTitle);
-            
-              movieContainer.style.cursor ="pointer"
-              upcomingWrapper.appendChild(movieContainer);
-            
-              movieContainer.addEventListener("click", function() {
-                descTitle.innerHTML = '';
+             movieContainer.addEventListener('click', function(){
+              descTitle.innerHTML = '';
                     genre.innerHTML = '';
                     rating.innerHTML = '';
                     rated.innerHTML = '';
@@ -308,70 +282,131 @@ document.querySelector(".img-btn").addEventListener("click", function() {
                     movieImage.src = '';
                     movieImage.alt = '';
                     languages.innerHTML = '';
-                fetchCard(this.lastChild.firstChild.innerHTML);
-              })
-             
-            }
-        })
-      var popularWrapper = document.querySelector(".popular-wrapper")
 
-      fetch(tmdbUrlPopular)
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-        
-            for (var i = 0; i < data.results.length; i++) {
+
+                    fetchCard(this.lastChild.firstChild.innerHTML);
+             })
+            }
+        )
+        var upcomingWrapper = document.querySelector(".upcoming-wrapper")
+
+        fetch(tmdbUrlUpcoming)
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+          
+              for (var i = 0; i < data.results.length; i ++) {
+                
+                var movieContainer = document.createElement("div");
+  
+                var movieTitle = document.createElement("div");
+                var movieName = document.createElement("p");
+                var movieReleaseDate = document.createElement("p");
+  
+                var movieImage = document.createElement("div");
+                var moviePosterPath = document.createElement("img");
+  
+                movieImage.setAttribute("class", "image-content popular-image");
+                moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
+                moviePosterPath.alt = data.results[i].title;
+                moviePosterPath.style.borderRadius = "10px";
+  
+                movieImage.appendChild(moviePosterPath);
               
-              var movieContainer = document.createElement("div");
-
-              var movieTitle = document.createElement("div");
-              var movieName = document.createElement("p");
-              var movieReleaseDate = document.createElement("p");
-
-              var movieImage = document.createElement("div");
-              var moviePosterPath = document.createElement("img");
-
-              movieImage.setAttribute("class", "image-content popular-image");
-              moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
-              moviePosterPath.alt = data.results[i].title;
-              moviePosterPath.style.borderRadius = "10px";
-
-              movieImage.appendChild(moviePosterPath);
-            
-              movieTitle.setAttribute("class", "title")
-              movieName.setAttribute("class", "movie_title")
-              movieName.textContent = data.results[i].title;
-              movieReleaseDate.textContent = data.results[i].release_date.substring(0,4);
-                
-              movieTitle.appendChild(movieName);
-              movieTitle.appendChild(movieReleaseDate);
-                
-              movieContainer.setAttribute("class", "card");
-
-              movieContainer.appendChild(moviePosterPath);
-              movieContainer.appendChild(movieTitle);
-            
-              movieContainer.style.cursor ="pointer"
-              popularWrapper.appendChild(movieContainer);
-            
-              movieContainer.addEventListener("click", function() {
+                movieTitle.setAttribute("class", "title")
+                movieName.setAttribute("class", "movie_title")
+                movieName.textContent = data.results[i].title;
+                movieReleaseDate.textContent = data.results[i].release_date.substring(0,4);
+                  
+                movieTitle.appendChild(movieName);
+                movieTitle.appendChild(movieReleaseDate);
+                  
+                movieContainer.setAttribute("class", "card");
+  
+                movieContainer.appendChild(moviePosterPath);
+                movieContainer.appendChild(movieTitle);
+                movieContainer.style.cursor = 'pointer'
+                upcomingWrapper.appendChild(movieContainer);
+          
+               movieContainer.addEventListener('click', function(){
                 descTitle.innerHTML = '';
-                    genre.innerHTML = '';
-                    rating.innerHTML = '';
-                    rated.innerHTML = '';
-                    runtime.innerHTML = '';
-                    year.innerHTML = '';
-                    descParagraph.innerHTML = '';
-                    director.innerHTML = '';
-                    writer.innerHTML = '';
-                    actors.innerHTML = '';
-                    movieImage.src = '';
-                    movieImage.alt = '';
-                    languages.innerHTML = '';
-                fetchCard(this.lastChild.firstChild.innerHTML);
-              })
-             
-            }
-        })
+                      genre.innerHTML = '';
+                      rating.innerHTML = '';
+                      rated.innerHTML = '';
+                      runtime.innerHTML = '';
+                      year.innerHTML = '';
+                      descParagraph.innerHTML = '';
+                      director.innerHTML = '';
+                      writer.innerHTML = '';
+                      actors.innerHTML = '';
+                      movieImage.src = '';
+                      movieImage.alt = '';
+                      languages.innerHTML = '';
+  
+  
+                      fetchCard(this.lastChild.firstChild.innerHTML);
+               })
+              }
+          })
+          var popularWrapper = document.querySelector(".popular-wrapper")
+
+          fetch(tmdbUrlPopular)
+              .then(response => response.json())
+              .then(data => {
+                console.log(data);
+            
+                for (var i = 0; i < data.results.length; i ++) {
+                  
+                  var movieContainer = document.createElement("div");
+    
+                  var movieTitle = document.createElement("div");
+                  var movieName = document.createElement("p");
+                  var movieReleaseDate = document.createElement("p");
+    
+                  var movieImage = document.createElement("div");
+                  var moviePosterPath = document.createElement("img");
+    
+                  movieImage.setAttribute("class", "image-content popular-image");
+                  moviePosterPath.src = "https://image.tmdb.org/t/p/w200" + data.results[i].poster_path;
+                  moviePosterPath.alt = data.results[i].title;
+                  moviePosterPath.style.borderRadius = "10px";
+    
+                  movieImage.appendChild(moviePosterPath);
+                
+                  movieTitle.setAttribute("class", "title")
+                  movieName.setAttribute("class", "movie_title")
+                  movieName.textContent = data.results[i].title;
+                  movieReleaseDate.textContent = data.results[i].release_date.substring(0,4);
+                    
+                  movieTitle.appendChild(movieName);
+                  movieTitle.appendChild(movieReleaseDate);
+                    
+                  movieContainer.setAttribute("class", "card");
+    
+                  movieContainer.appendChild(moviePosterPath);
+                  movieContainer.appendChild(movieTitle);
+                  movieContainer.style.cursor = 'pointer'
+                  popularWrapper.appendChild(movieContainer);
+            
+                 movieContainer.addEventListener('click', function(){
+                  descTitle.innerHTML = '';
+                        genre.innerHTML = '';
+                        rating.innerHTML = '';
+                        rated.innerHTML = '';
+                        runtime.innerHTML = '';
+                        year.innerHTML = '';
+                        descParagraph.innerHTML = '';
+                        director.innerHTML = '';
+                        writer.innerHTML = '';
+                        actors.innerHTML = '';
+                        movieImage.src = '';
+                        movieImage.alt = '';
+                        languages.innerHTML = '';
+    
+    
+                        fetchCard(this.lastChild.firstChild.innerHTML);
+                 })
+                }
+            })
 
 

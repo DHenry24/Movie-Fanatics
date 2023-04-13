@@ -24,10 +24,11 @@ THEN I am presented with a footer of credits and copy rights text
 
 
 ## Mock-Up
-![ScreenshotofMockup](./)
+[movie-fanatic.webm](https://user-images.githubusercontent.com/87540591/231011436-3dfd9a7d-88a6-47c6-8e8c-5954b654f7df.webm)
+
 
 ## URL to Deployed Site 
->
+>https://dhenry24.github.io/team-project/MovieFanatics
 ## API's Used 
 ```
 OMDB Api Link:
